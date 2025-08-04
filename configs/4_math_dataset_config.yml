@@ -1,0 +1,40 @@
+dataset:
+  name: "MATH"
+  task_type: "competition_math"
+  data_dir: "data/math"
+difficulty_mapping:
+  1: "level_1"
+  2: "level_2"
+  3: "level_3"
+  4: "level_4"
+  5: "level_5"
+evaluation:
+  answer_pattern: r'\\boxed\{([^}]+)\}'
+  fallback_patterns:
+    - r'\\boxed\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}'
+    - r'\\boxed\{(.+)\}'
+    - r'#### (.+)'
+  success_threshold: 0.90
+required_agents:
+  - "PlannerAgent"
+  - "MathExecutorAgent" 
+  - "SolutionCriticAgent"
+training:
+  budget_range: [1000, 3000] 
+  curriculum_levels: [1, 2, 3, 4, 5]
+  success_reward: 1200.0
+  failure_penalty: -1200.0
+  over_budget_penalty: -12000.0
+data_paths:
+  raw_data_dir: "data/math"
+  raw_train: "data/math/train"
+  raw_test: "data/math/test"
+  sampled_train: "data/processed/math/sampled_train.jsonl"
+  sampled_test: "data/processed/math/sampled_test.jsonl"
+  offline_dataset: "data/processed/math/offline_rl_dataset.jsonl"
+  agent_library: "configs/0_agent_library_math.yml"
+data_loading:
+  format: "directory"
+  shuffle_seed: 888
+  default_split: "sampled_train"
+  default_test_split: "sampled_test"

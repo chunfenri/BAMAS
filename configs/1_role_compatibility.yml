@@ -1,0 +1,30 @@
+roles:
+  Planner:
+    - PlannerAgent
+Executor:
+  compatible_agents:
+    - MathExecutorAgent
+    - CodeExecutorAgent
+    - MBPPCodeSolveAgent
+Critic:
+  compatible_agents:
+    - SolutionCriticAgent
+    - CodeCriticAgent
+Parser:
+  compatible_agents:
+    - InputParserAgent
+Simplifier:
+  compatible_agents:
+    - SimplificationAgent
+Formatter:
+  compatible_agents:
+    - OutputFormatterAgent
+OutputFormatter:
+  compatible_agents:
+    - OutputFormatterAgent
+Irrelevant:
+  compatible_agents:
+    - PoetryAgent
+    - MarketingCopyAgent
+    - HistoricalFactAgent
+    - CodeRefactorAgent 

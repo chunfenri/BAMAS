@@ -1,0 +1,44 @@
+{
+  "patterns": [
+    {
+      "name": "linear_topology",
+      "description": "Linear Topology: Implements sequential reasoning, where each agent builds upon the output of the previous one. This topology is well-suited for multi-step reasoning tasks.",
+      "topology_type": "fixed",
+      "execution_template": "linear_chain",
+      "roles": [
+        {"name": "Executor", "type": "Expandable", "min_count": 1, "max_count": 5}
+      ]
+    },
+    {
+      "name": "star_topology", 
+      "description": "Star Topology: Supports parallel hypothesis generation and evaluation, embodying a divide-and-conquer approach ideal for decomposable or multi-perspective problems.",
+      "topology_type": "fixed",
+      "execution_template": "star_dispatch",
+      "roles": [
+        {"name": "Executor", "type": "Expandable", "min_count": 1, "max_count": 5}
+      ]
+    },
+    {
+      "name": "feedback_topology",
+      "description": "Feedback Topology: Enables iterative refinement through generate-and-critique cycles. This is particularly effective for tasks requiring self-correction or quality enhancement.",
+      "topology_type": "fixed", 
+      "execution_template": "feedback_loop",
+      "roles": [
+        {"name": "Executor", "type": "Expandable", "min_count": 1, "max_count": 3},
+        {"name": "Critic", "type": "Expandable", "min_count": 1, "max_count": 2}
+      ]
+    },
+    {
+      "name": "planner_driven_topology",
+      "description": "Planner-Driven Topology: Incorporates a central planner agent to dynamically coordinate other agents, offering maximum flexibility. It is especially useful for open-ended or unstructured tasks with no predefined solution path.",
+      "topology_type": "dynamic",
+      "execution_template": "planner_driven",
+      "roles": [
+        {"name": "Planner", "type": "Singleton"},
+        {"name": "Executor", "type": "Expandable", "min_count": 1, "max_count": 3},
+        {"name": "Critic", "type": "Expandable", "min_count": 0, "max_count": 2},
+        {"name": "OutputFormatter", "type": "Singleton"}
+      ]
+    }
+  ]
+} 

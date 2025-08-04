@@ -1,0 +1,16 @@
+# LLM and Deep Learning
+torch
+transformers
+sentence-transformers
+openai
+# ILP Solver
+pulp
+# Data Handling and Utilities
+pyyaml
+scikit-learn
+pandas
+networkx
+tqdm
+requests
+duckduckgo-search
+numpy

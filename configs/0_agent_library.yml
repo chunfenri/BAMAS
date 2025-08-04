@@ -1,0 +1,159 @@
+agents:
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Planner
+  max_tokens: 320
+  id: PlannerAgent_High
+  class_name: PlannerAgent
+  description: Analyzes a complex word problem and breaks it down into a multi-step
+    logical plan. Should be used for problems requiring reasoning and several calculation
+    steps.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: Planner
+  max_tokens: 320
+  id: PlannerAgent_Low
+  class_name: PlannerAgent
+  description: Analyzes a complex word problem and breaks it down into a multi-step
+    logical plan. Should be used for problems requiring reasoning and several calculation
+    steps.
+  performance_p: 0.95
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Executor
+  max_tokens: 384
+  id: MathExecutorAgent_High
+  class_name: MathExecutorAgent
+  description: Executes a single, concrete mathematical calculation step described
+    in natural language (e.g., 'add 15 to 29').
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: Executor
+  max_tokens: 384
+  id: MathExecutorAgent_Low
+  class_name: MathExecutorAgent
+  description: Executes a single, concrete mathematical calculation step described
+    in natural language (e.g., 'add 15 to 29').
+  performance_p: 0.5
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Executor
+  max_tokens: 320
+  id: CodeExecutorAgent_High
+  class_name: CodeExecutorAgent
+  description: Executes a single line of Python code for calculation. Useful for complex
+    formulas or when precision is critical.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: Executor
+  max_tokens: 320
+  id: CodeExecutorAgent_Low
+  class_name: CodeExecutorAgent
+  description: Executes a single line of Python code for calculation. Useful for complex
+    formulas or when precision is critical.
+  performance_p: 0.5
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Critic
+  max_tokens: 384
+  id: SolutionCriticAgent_High
+  class_name: SolutionCriticAgent
+  description: Reviews a proposed solution step and its result to identify logical
+    fallacies or calculation errors. Useful for problems with verification steps or
+    logical traps.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: Critic
+  max_tokens: 384
+  id: SolutionCriticAgent_Low
+  class_name: SolutionCriticAgent
+  description: Reviews a proposed solution step and its result to identify logical
+    fallacies or calculation errors. Useful for problems with verification steps or
+    logical traps.
+  performance_p: 0.5
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: Parser
+  max_tokens: 320
+  id: InputParserAgent_Low
+  class_name: InputParserAgent
+  description: Extracts and structures key numbers, variables, and the final question
+    from the initial user prompt.
+  performance_p: 0.95
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Simplifier
+  max_tokens: 128
+  id: SimplificationAgent_High
+  class_name: SimplificationAgent
+  description: Rewrites a complex sentence or sub-problem into a simpler, clearer
+    form for other agents to process.
+  performance_p: 0.95
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: Simplifier
+  max_tokens: 320
+  id: SimplificationAgent_Low
+  class_name: SimplificationAgent
+  description: Rewrites a complex sentence or sub-problem into a simpler, clearer
+    form for other agents to process.
+  performance_p: 0.95
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: OutputFormatter
+  max_tokens: 256
+  id: OutputFormatterAgent_High
+  class_name: OutputFormatterAgent
+  description: Formats and presents the final solution in a clear, structured manner. Takes the computed result and presents it as the final answer.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4.1-nano
+  provider: openai
+  role: OutputFormatter
+  max_tokens: 320
+  id: OutputFormatterAgent_Low
+  class_name: OutputFormatterAgent
+  description: Formats and presents the final solution in a clear, structured manner. Takes the computed result and presents it as the final answer.
+  performance_p: 0.95
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4

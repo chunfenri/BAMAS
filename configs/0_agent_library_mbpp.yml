@@ -1,0 +1,67 @@
+agents:
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Planner
+  max_tokens: 384
+  id: PlannerAgent_High
+  class_name: PlannerAgent
+  description: Analyzes programming problems and breaks them down into logical implementation steps. Specialized for code generation and algorithm design.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4o-mini
+  provider: openai
+  role: Planner
+  max_tokens: 384
+  id: PlannerAgent_Low
+  class_name: PlannerAgent
+  description: Analyzes programming problems and breaks them down into logical implementation steps. Specialized for code generation and algorithm design.
+  performance_p: 0.9
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Executor
+  max_tokens: 384
+  id: MBPPCodeSolveAgent_High
+  class_name: MBPPCodeSolveAgent
+  description: Generates complete Python functions to solve programming problems. Optimized for MBPP-style function definitions and implementations.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4o-mini
+  provider: openai
+  role: Executor
+  max_tokens: 384
+  id: MBPPCodeSolveAgent_Low
+  class_name: MBPPCodeSolveAgent
+  description: Generates complete Python functions to solve programming problems. Optimized for MBPP-style function definitions and implementations.
+  performance_p: 0.8
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4
+- config_level: High
+  model_name: deepseek-chat
+  provider: deepseek
+  role: Critic
+  max_tokens: 384
+  id: CodeCriticAgent_High
+  class_name: CodeCriticAgent
+  description: Reviews Python code for correctness, efficiency, and adherence to problem requirements. Specializes in identifying logical errors and test case failures.
+  performance_p: 1.0
+  cost_coeff_A: 0.27
+  cost_coeff_B: 1.1
+- config_level: Low
+  model_name: gpt-4o-mini
+  provider: openai
+  role: Critic
+  max_tokens: 384
+  id: CodeCriticAgent_Low
+  class_name: CodeCriticAgent
+  description: Reviews Python code for correctness, efficiency, and adherence to problem requirements. Specializes in identifying logical errors and test case failures.
+  performance_p: 0.8
+  cost_coeff_A: 0.1
+  cost_coeff_B: 0.4 

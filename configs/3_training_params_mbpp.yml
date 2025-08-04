@@ -1,0 +1,32 @@
+training:
+  learning_rate: 0.003
+  budget_range: [500, 2000]
+  seed: 123
+  entropy_beta: 0.001
+inference:
+  budget: 1800
+ilp_solver:
+  avg_prompt_tokens: 500
+rewards:
+  success_reward: 1500.0
+  failure_penalty: -1500.0
+  overflow_penalty: 2000.0
+  efficiency_multiplier: 0.0001
+  task_weight: 1.0
+  budget_weight: 1.0
+  over_budget_penalty: -2000.0
+  shaping_infeasible: -150.0
+data:
+  mbpp_raw_path: "data/mbpp/mbpp.jsonl"
+  offline_dataset_path: "data/processed/mbpp/offline_rl_dataset.jsonl"
+outputs:
+  checkpoints_dir: "outputs/checkpoints/mbpp/"
+  logs_dir: "outputs/logs/mbpp/"
+  results_dir: "outputs/results/mbpp/"
+models:
+  embedding_model: 'all-MiniLM-L6-v2'
+  filter_provider: 'deepseek'
+  filter_model: 'deepseek-chat'
+code_execution:
+  timeout_seconds: 10
+  max_memory_mb: 256 

@@ -1,0 +1,30 @@
+training:
+  learning_rate: 0.003
+  budget_range: [1000, 3000]
+  seed: 42
+  entropy_beta: 0.001
+inference:
+  budget: 1500
+ilp_solver:
+  avg_prompt_tokens: 500
+rewards:
+  success_reward: 1000.0
+  failure_penalty: -1000.0
+  overflow_penalty: 1500.0
+  efficiency_multiplier: 0.0001
+  task_weight: 1.0
+  budget_weight: 1.0
+  over_budget_penalty: -1500.0
+  shaping_infeasible: -120.0
+data:
+  gsm8k_train_path: "data/gsm8k/train.jsonl"
+  gsm8k_test_path: "data/gsm8k/test.jsonl"
+  offline_dataset_path: "data/processed/math/offline_rl_dataset.jsonl"
+outputs:
+  checkpoints_dir: "outputs/checkpoints/"
+  logs_dir: "outputs/logs/"
+  results_dir: "outputs/results/"
+models:
+  embedding_model: 'all-MiniLM-L6-v2'
+  filter_provider: 'deepseek'
+  filter_model: 'deepseek-chat' 
