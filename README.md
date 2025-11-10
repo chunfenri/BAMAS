@@ -1,6 +1,6 @@
 # BAMAS: Budget-Aware Multi-Agent Systems
 
-This repository contains the implementation for the paper **"BAMAS: Structuring Budget-Aware Multi-Agent Systems"**.
+This repository contains the implementation for the AAAI-26 paper **"BAMAS: Structuring Budget-Aware Multi-Agent Systems"**.
 
 ## Overview
 
